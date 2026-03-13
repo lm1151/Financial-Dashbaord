@@ -1,0 +1,48 @@
+Personal Finance Dashboard – Final Project Report
+
+Summary:
+This project is a Personal Finance Dashboard developed in Python to automate the analysis of financial transactions. The user provides a `.csv` file containing income and expense data. The system processes and categorizes transactions, calculates total income, total expenses, and net balance, and presents the results visually using a bar chart. It also checks for overspending in key categories and exports a summary report to a `.txt` file for recordkeeping.
+  
+Technologies Used:
+- Object-Oriented Programming (OOP): Used to structure the program through `Transaction` and `FinanceManager` classes.
+- pandas: For reading the `.csv` file, transforming raw data, and handling numerical operations.
+- matplotlib: To generate visual summaries of spending by category.
+- File I/O: For importing user data (`transactions.csv`) and exporting a written summary (`summary.txt`).
+
+Code Highlights
+  1. Data Loading and Transformation
+    I used `pandas.read_csv()` to load the user's CSV file. Each row is converted into a `Transaction` object via the `FinanceManager` class, allowing clean separation of data parsing and       business logic. This transformation allows us to work with Python objects rather than raw strings or dictionaries, making calculations more intuitive and less error-prone.
+  2. Budget Warnings (Bonus Feature)
+    A custom function, `check_budget_warnings()`, was written to scan through expenses and issue alerts if certain categories exceed defined thresholds. Specifically:
+      - Spending on Food above $200
+      - Spending on Entertainment above $100
+    This encourages financial awareness and gives the user actionable feedback.
+  3. Visualization
+    Using `matplotlib`, I created a bar chart to show expenses by category. Each bar represents the total amount spent within a category, allowing the user to quickly identify their major       spending areas. The chart is generated dynamically based on the transaction data provided by the user.
+  4. Exported Summary File
+    At the end of execution, a plain text file called `summary.txt` is created. It contains:
+      - Total income
+      - Total expenses
+      - Net balance
+    This file provides a portable way to review financial health over time.
+    Screenshots of Important Code
+ 
+Figure 1: Transaction Class
+This class defines the data structure for each transaction. It ensures that each entry has a standardized format: date, description, category, and amount. All amounts are converted to float values for mathematical accuracy.
+ 
+Figure 2: main() Function and Workflow
+This section of the `main.py` script demonstrates the core workflow: loading CSV data, plotting category expenses, checking for overspending, and exporting the financial summary. It ties together all components of the project.
+ 
+Figure 3: Expense Chart
+The output of the `plot_expense_by_category()` function, this bar chart visually summarizes where the user is spending money. Categories like Food, Entertainment, and Rent are represented with color-coded bars, making financial habits more transparent.
+
+More Ideas for a Future Version
+If further time or resources were available, I would consider:
+  - Adding filters for month/year to allow more granular analysis
+  - Building a GUI using Streamlit or Tkinter to improve usability
+  - Integrating bank APIs (like Plaid) for real-time transaction imports
+  - Letting users set custom budget thresholds per category
+  - Adding the ability to export bar charts as image files
+
+Reflection
+This project deepened my understanding of Python’s practical applications, particularly in structuring code through classes and functions. It also taught me how to integrate third-party tools (`pandas`, `matplotlib`) and improve user experience through visual and written outputs. The dashboard is something I’d proudly show to friends and family as a real, working solution to a common personal finance challenge.
